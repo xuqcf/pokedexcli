@@ -10,7 +10,7 @@ func main() {
 }
 
 func cleanInput(text string) []string {
-	temp_string := strings.ToLower(text)
-	words := strings.Fields(temp_string)
+	lowered := strings.ToLower(text)
+	words := strings.Fields(lowered)
 	return words
 }

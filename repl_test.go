@@ -27,13 +27,14 @@ func TestCleanInput(t *testing.T) {
 		// Check the length of the actual slice
 		// if they don't match, use t.Errorf and continue to the next case
 		if len(actual) != len(c.expected) {
-			t.Errorf("the length of the words is not matched")
+			t.Errorf("length mismatch: got %d words, expected %d", len(actual), len(c.expected))
+			continue
 		}
 		for i := range actual {
 			word := actual[i]
 			expectedWord := c.expected[i]
 			if word != expectedWord { // Check each word in the slice
-				t.Errorf("The word: %s to do not match the expected word: %s", word, expectedWord) // if they don't match, use t.Errorf to print an error message
+				t.Errorf("input: %q: got %q, expected %q", c.input, word, c.expected) // if they don't match, use t.Errorf to print an error message
 				// and fail the test
 			}
 		}
